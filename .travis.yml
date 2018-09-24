@@ -1,6 +1,9 @@
 language: go
 go:
 - 1.10.2
+
+go_import_path: github.com/platform9/azure-provider
+
 jobs:
   include:
     - stage: Unit Tests
