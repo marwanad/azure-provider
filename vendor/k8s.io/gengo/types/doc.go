@@ -1,5 +1,5 @@
 /*
-Copyright 2017 The Kubernetes Authors.
+Copyright 2015 The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,9 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// +k8s:deepcopy-gen=package,register
-// +k8s:conversion-gen=github.com/platform9/azure-provider/cloud/azure/providerconfig
-// +k8s:openapi-gen=true
-// +k8s:defaulter-gen=TypeMeta
-
-package v1alpha1
+// Package types contains go type information, packaged in a way that makes
+// auto-generation convenient, whether by template or straight go functions.
+package types // import "k8s.io/gengo/types"
