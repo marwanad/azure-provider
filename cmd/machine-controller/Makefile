@@ -14,9 +14,9 @@
 
 .PHONY: image push dev_image dev_push
 
-PREFIX = platform9
-NAME = cluster-api-azure-machine-controller
-TAG = 0.0.30
+PREFIX = marwanad1
+NAME = machine_controller
+TAG = dev
 
 image:
 	docker build -t "$(PREFIX)/$(NAME):$(TAG)" -f ./Dockerfile ../..
