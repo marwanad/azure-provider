@@ -98,7 +98,7 @@ CLIENT_ID_ENC=$(echo -n $CLIENT_ID | base64)
 CLIENT_SECRET_ENC=$(echo -n $CLIENT_SECRET | base64)
 SUBSCRIPTION_ID_ENC=$(echo -n $SUBSCRIPTION_ID | base64)
 TENANT_ID_ENC=$(echo -n $TENANT_ID | base64)
-LOCATION="eastus"
+LOCATION="westus"
 
 rm tmp.auth
 
