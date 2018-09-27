@@ -10,12 +10,12 @@
 [[projects]]
   name = "github.com/Azure/azure-sdk-for-go"
   packages = [
-    "services/network/mgmt/2018-01-01/network",
+    "services/network/mgmt/2018-08-01/network",
     "services/resources/mgmt/2018-02-01/resources",
     "version"
   ]
-  revision = "94c47b0ea2e17193737d1d0939d2c7655ba82dd3"
-  version = "v17.2.0"
+  revision = "d3bcaa706ac10b18784811ff31e43be635159013"
+  version = "v21.0.0"
 
 [[projects]]
   name = "github.com/Azure/go-autorest"
