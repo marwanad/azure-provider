@@ -344,7 +344,7 @@ func readConfigs(t *testing.T, clusterConfigPath string, machinesConfigPath stri
 func mockAzureMachineProviderConfig(t *testing.T) *v1alpha1.AzureMachineProviderConfig {
 	t.Helper()
 	return &v1alpha1.AzureMachineProviderConfig{
-		Location: "eastus",
+		Location: "southcentralus",
 		VMSize:   "Standard_B1s",
 		Image: v1alpha1.Image{
 			Publisher: "Canonical",
@@ -366,7 +366,7 @@ func mockAzureClusterProviderConfig(t *testing.T, rg string) *v1alpha1.AzureClus
 	t.Helper()
 	return &v1alpha1.AzureClusterProviderConfig{
 		ResourceGroup: rg,
-		Location:      "eastus",
+		Location:      "southcentralus",
 	}
 }
 

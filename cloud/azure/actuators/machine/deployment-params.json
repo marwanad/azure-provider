@@ -33,7 +33,7 @@
         "value": "Standard_B1s"
     },
     "location": {
-        "value": "eastus"
+        "value": "southcentralus"
     },
     "os_type": {
         "value": "Linux"

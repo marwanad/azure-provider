@@ -13,7 +13,7 @@ items:
         kind: "AzureMachineProviderConfig"
         roles:
         - Master
-        location: "eastus"
+        location: "southcentralus"
         vmSize: "Standard_B1s"
         image: 
           publisher: "Canonical"
@@ -42,7 +42,7 @@ items:
         kind: "AzureMachineProviderConfig"
         roles:
         - Node
-        location: "eastus"
+        location: "southcentralus"
         vmSize: "Standard_B1s"
         image: 
           publisher: "Canonical"

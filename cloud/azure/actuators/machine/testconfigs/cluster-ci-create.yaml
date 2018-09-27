@@ -14,4 +14,4 @@ spec:
         apiVersion: "azureproviderconfig/v1alpha1"
         kind: "AzureClusterProviderConfig"
         resourceGroup: "ClusterAPI-test-CI-create"
-        location: "eastus"
+        location: "southcentralus"
