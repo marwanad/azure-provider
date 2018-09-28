@@ -345,7 +345,7 @@ func mockAzureMachineProviderConfig(t *testing.T) *v1alpha1.AzureMachineProvider
 	t.Helper()
 	return &v1alpha1.AzureMachineProviderConfig{
 		Location: "southcentralus",
-		VMSize:   "Standard_B1s",
+		VMSize:   "Standard_B2ms",
 		Image: v1alpha1.Image{
 			Publisher: "Canonical",
 			Offer:     "UbuntuServer",
