@@ -30,7 +30,7 @@
         "value": "_"
     },
     "vm_size": {
-        "value": "Standard_B1s"
+        "value": "Standard_B2ms"
     },
     "location": {
         "value": "southcentralus"

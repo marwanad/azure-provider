@@ -14,7 +14,7 @@ items:
         roles:
         - Master
         location: "southcentralus"
-        vmSize: "Standard_B1s"
+        vmSize: "Standard_B2ms"
         image: 
           publisher: "Canonical"
           offer: "UbuntuServer"
