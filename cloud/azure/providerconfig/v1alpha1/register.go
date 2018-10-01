@@ -14,7 +14,6 @@ limitations under the License.
 package v1alpha1
 
 import (
-	"github.com/platform9/azure-provider/cloud/azure/providerconfig"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/apimachinery/pkg/runtime/serializer"
@@ -47,7 +46,7 @@ func NewSchemeAndCodecs() (*runtime.Scheme, *serializer.CodecFactory, error) {
 	if err := AddToScheme(scheme); err != nil {
 		return nil, nil, err
 	}
-	if err := azureproviderconfig.AddToScheme(scheme); err != nil {
+	if err := AddToScheme(scheme); err != nil {
 		return nil, nil, err
 	}
 	codecs := serializer.NewCodecFactory(scheme)
