@@ -470,12 +470,11 @@ systemctl daemon-reload
 systemctl restart kubelet.service
 
 PORT=6443
-PRIVATEIP=$(curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/privateIpAddress?api-version=2017-04-01&format=text")
-PUBLICIP=$(curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text")
+PUBLICIP=$(curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text")
 
 # Set up kubeadm config file to pass parameters to kubeadm init.
 cat > kubeadm_config.yaml <<EOF
-apiVersion: kubeadm.k8s.io/v1alpha1
+apiVersion: kubeadm.k8s.io/v1alpha2
 kind: MasterConfiguration
 api:
   advertiseAddress: ${PUBLICIP}
