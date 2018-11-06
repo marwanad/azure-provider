@@ -1,4 +1,4 @@
-# Copyright 2018 The Kubernetes Authors.
+Makefile# Copyright 2018 The Kubernetes Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 PREFIX = platform9
 NAME = cluster-api-azure-cluster-controller
-TAG = 0.0.29
+TAG?= 0.0.29
 
 image:
 	docker build -t "$(PREFIX)/$(NAME):$(TAG)" -f ./Dockerfile ../..
@@ -29,3 +29,9 @@ dev_image:
 
 dev_push: dev_image
 	docker push "$(PREFIX)/$(NAME):$(TAG)-dev"
+
+ci_image:
+	docker build -t "$(PREFIX)/$(NAME):$(TAG)-ci" -f ./Dockerfile ../..
+
+ ci_push: ci_image
+	docker push "$(PREFIX)/$(NAME):$(TAG)-ci"
