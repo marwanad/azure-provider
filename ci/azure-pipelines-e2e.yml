@@ -59,8 +59,7 @@ steps:
     echo "Validating kubectl configuration..."
     kubectl cluster-info
   displayName: 'Configure kubernetes'
-
-  - script: |
+- script: |
     echo "Building Docker images for machine-controller and cluster-controller"
     make images_dev IMAGE_TAG=$(build.SourceVersion)
   workingDirectory: '$(modulePath)'
