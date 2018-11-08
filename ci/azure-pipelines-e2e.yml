@@ -60,11 +60,17 @@ steps:
     kubectl cluster-info
   displayName: 'Configure kubernetes'
 
+  - script: |
+    echo "Building Docker images for machine-controller and cluster-controller"
+    make images_dev IMAGE_TAG=$(build.SourceVersion)
+  workingDirectory: '$(modulePath)'
+  displayName: 'Build Docker images for machine-controller and cluster-controller'
+
 - task: AzureCLI@1
   inputs:
     azureSubscription: $(ServiceConnectionName)
     scriptLocation: inlineScript
-    inlineScript: 'cd $(modulePath) && HUMAN_FRIENDLY_CLUSTER_NAME=ci-e2e RESOURCE_GROUP=ci-e2e-clusterapi CONTROLLER_VERSION=$(build.SourceVersion)-ci ./generate-yaml.sh'
+    inlineScript: 'cd $(modulePath) && HUMAN_FRIENDLY_CLUSTER_NAME=ci-e2e RESOURCE_GROUP=ci-e2e-clusterapi CONTROLLER_VERSION=$(build.SourceVersion)-dev ./generate-yaml.sh'
   env:
     SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
     CLIENT_ID: $(AZURE_CLIENT_ID)
@@ -161,15 +167,15 @@ steps:
   workingDirectory: '$(modulePath)'
   displayName: 'Run e2e test cases'
 
-# - script: |
-#     echo "Pushing azure-cluster-controller and azure-machine-controller to Docker Hub"
-#     docker login -u "${DOCKER_USER}" -p "${DOCKER_PASS}"
-#     make push_dev
-#   env:
-#     DOCKER_USER: $(DOCKERHUB_USER)
-#     DOCKER_PASS: $(DOCKERHUB_PASS)
-#   workingDirectory: '$(modulePath)'
-#   displayName: 'Push dev azure-cluster-controller and azure-machine-controller images'
+- script: |
+    echo "Pushing azure-cluster-controller and azure-machine-controller to Docker Hub"
+    docker login -u "${DOCKER_USER}" -p "${DOCKER_PASS}"
+    make push_dev IMAGE_TAG=$(build.SourceVersion)
+  env:
+    DOCKER_USER: $(DOCKERHUB_USER)
+    DOCKER_PASS: $(DOCKERHUB_PASS)
+  workingDirectory: '$(modulePath)'
+  displayName: 'Push dev azure-cluster-controller and azure-machine-controller images'
 
 - task: AzureCLI@1
   condition: always()
